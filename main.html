@@ -32,6 +32,15 @@
         usernameInput.value = storedUsername;
         passwordInput.value = storedPassword;
         rememberCheckbox.checked = true;
+
+        // Display "Login as existing user" button
+        const existingUserButton = document.createElement('button');
+        existingUserButton.id = 'existing';
+        existingUserButton.textContent = 'Login as existing user';
+        existingUserButton.addEventListener('click', function() {
+          alert("Logged in as " + storedUsername);
+        });
+        form.appendChild(existingUserButton);
       }
 
       // Function to handle form submission
@@ -50,17 +59,6 @@
         }
 
         alert("Logged in as " + username);
-
-        // Check if existing user button needs to be displayed
-        if (storedUsername && storedPassword) {
-          const existingUserButton = document.createElement('button');
-          existingUserButton.id = 'existing';
-          existingUserButton.textContent = 'Login as existing user';
-          existingUserButton.addEventListener('click', function() {
-            alert("Logged in as " + storedUsername);
-          });
-          form.appendChild(existingUserButton);
-        }
       }
 
       // Add submit event listener to the form
